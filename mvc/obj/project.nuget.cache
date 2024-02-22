@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "K162+I3rNRs3vIbEs7IdGovWVOyY0dwAIC849A2hcH8sRUZ8ijWTQeASX1ulnTqL/Mp2Nv3hJQOp3qQKn0WIBw==",
   "success": true,
   "projectFilePath": "/Users/yashveekotadiya/Desktop/git/Task-Managment/mvc/mvc.csproj",
+=======
+  "dgSpecHash": "zBzylEOdWKaW3z/rIchsCR1x6VL0wg2dMvKyyWNpy6ng2a2qOKyapLnI+1TKVx5d5itBa+t/zgpJwBdg463ZoA==",
+  "success": true,
+  "projectFilePath": "D:\\Interns Data\\GitProject\\Task-Managment\\mvc\\mvc.csproj",
+>>>>>>> c7b7623adf6adbec78ac00795da7de36ae1af18c
   "expectedPackageFiles": [],
   "logs": []
 }

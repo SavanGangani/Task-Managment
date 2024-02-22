@@ -8,19 +8,38 @@
     "net8.0": []
   },
   "packageFolders": {
+<<<<<<< HEAD
     "/Users/yashveekotadiya/.nuget/packages/": {}
+=======
+    "C:\\Users\\Dhruvi kava\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> c7b7623adf6adbec78ac00795da7de36ae1af18c
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "/Users/yashveekotadiya/Desktop/git/Task-Managment/mvc/mvc.csproj",
       "projectName": "mvc",
       "projectPath": "/Users/yashveekotadiya/Desktop/git/Task-Managment/mvc/mvc.csproj",
       "packagesPath": "/Users/yashveekotadiya/.nuget/packages/",
       "outputPath": "/Users/yashveekotadiya/Desktop/git/Task-Managment/mvc/obj/",
+=======
+      "projectUniqueName": "D:\\Interns Data\\GitProject\\Task-Managment\\mvc\\mvc.csproj",
+      "projectName": "mvc",
+      "projectPath": "D:\\Interns Data\\GitProject\\Task-Managment\\mvc\\mvc.csproj",
+      "packagesPath": "C:\\Users\\Dhruvi kava\\.nuget\\packages\\",
+      "outputPath": "D:\\Interns Data\\GitProject\\Task-Managment\\mvc\\obj\\",
+>>>>>>> c7b7623adf6adbec78ac00795da7de36ae1af18c
       "projectStyle": "PackageReference",
       "configFilePaths": [
+<<<<<<< HEAD
         "/Users/yashveekotadiya/.nuget/NuGet/NuGet.Config"
+=======
+        "C:\\Users\\Dhruvi kava\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> c7b7623adf6adbec78ac00795da7de36ae1af18c
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -62,7 +81,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+>>>>>>> c7b7623adf6adbec78ac00795da7de36ae1af18c
       }
     }
   }
