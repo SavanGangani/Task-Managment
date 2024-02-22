@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace mvc.Repositories
 {
-    public class TaskRepository:CommanRepository
+    public class TaskRepository:CommanRepository,ITaskRepository
     {
          public List<MyTask> GetAllTask()
         {
