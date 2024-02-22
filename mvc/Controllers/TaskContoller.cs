@@ -5,10 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TaskDemo.BAL;
-using TaskDemo.Models;
+using mvc.Models;
 
-namespace TaskDemo.Controllers
+namespace mvc.Controllers
 {
     // [Route("[controller]")]
     public class TaskController : Controller
