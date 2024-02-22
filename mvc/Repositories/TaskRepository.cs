@@ -1,18 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using mvc.Models;
+using Npgsql;
 using System.Threading.Tasks;
 
 namespace mvc.Repositories
 {
-    public class TaskRepository:CommanRepository
+    public class TaskRepository:CommanRepository , ITaskRepository
     {
+        public readonly IHttpContextAccessor __httpContextAccessor;
+        public TaskRepository(IHttpContextAccessor accessor)
+        {
+            __httpContextAccessor = accessor;
+        }
          public List<MyTask> GetAllTask()
         {
             List<MyTask> taskList = new List<MyTask>();
 
-            using (var conn = new NpgsqlConnection(_connectionString))
-            {
+           
                 conn.Open();
 
                 using (var cmd = new NpgsqlCommand("SELECT * FROM t_task ,t_tasktype  WHERE t_task.c_tasktypeid = t_tasktype.c_tasktypeid ORDER BY c_taskid", conn))
@@ -33,7 +39,7 @@ namespace mvc.Repositories
 
                         taskList.Add(task);
                     }
-                }
+                
             }
             return taskList;
         }
@@ -42,9 +48,7 @@ namespace mvc.Repositories
         public MyTask GetOneTask(int id)
         {
             var task = new MyTask();
-            using (var conn = new NpgsqlConnection(_connectionString))
-            {
-                conn.Open();
+              conn.Open();
 
                 using (var cmd = new NpgsqlCommand("SELECT * FROM t_task INNER JOIN t_tasktype ON t_task.c_tasktypeid = t_tasktype.c_tasktypeid WHERE t_task.c_taskid = @c_taskid", conn))
                 {
@@ -62,15 +66,14 @@ namespace mvc.Repositories
                             task.c_taskusername = dr["c_taskusername"].ToString();
                         }
                     }
-                }
+                
             }
             return task;
         }
 
         public void AddTask(MyTask task)
         {
-            using (var conn = new NpgsqlConnection(_connectionString))
-            {
+            
                 conn.Open();
 
                 int tasktypeid = GetTaskTypeId(task.c_tasktypeid, conn);
@@ -87,15 +90,13 @@ namespace mvc.Repositories
 
                     cmd.ExecuteNonQuery();
                 }
-            }
+            
         }
 
         public void AddToMyTask(MyTask myTask)
         {
-            using (var conn = new NpgsqlConnection(_connectionString))
-            {
                 conn.Open();
-                var session = _httpContextAccessor.HttpContext.Session;
+                var session = __httpContextAccessor.HttpContext.Session;
                 myTask.c_taskusername = session.GetString("username");
 
                 using (var cmd = new NpgsqlCommand("UPDATE t_task SET c_taskusername = @user WHERE c_taskid = @taskid", conn))
@@ -105,14 +106,12 @@ namespace mvc.Repositories
 
                     cmd.ExecuteNonQuery();
                 }
-            }
+            
         }
 
          public void UpdateStatus(MyTask myTask)
         {
-            using (var conn = new NpgsqlConnection(_connectionString))
-            {
-                conn.Open();
+            conn.Open();
 
                 using (var cmd = new NpgsqlCommand("UPDATE t_task SET c_status = 'Done'  WHERE c_taskid = @taskid", conn))
                 {
@@ -120,7 +119,7 @@ namespace mvc.Repositories
 
                     cmd.ExecuteNonQuery();
                 }
-            }
+            
         }
 
         // public List<MyTask> GetMyTask()
@@ -172,13 +171,12 @@ namespace mvc.Repositories
         {
             List<MyTask> taskList = new List<MyTask>();
 
-            using (var conn = new NpgsqlConnection(_connectionString))
-            {
+            
                 conn.Open();
 
                 using (var cmd = new NpgsqlCommand("SELECT * FROM t_task where c_taskusername = @username ", conn))
                 {
-                    var session = _httpContextAccessor.HttpContext.Session;
+                    var session = __httpContextAccessor.HttpContext.Session;
                     var userName = session.GetString("username");
                     Console.WriteLine(userName);
                     cmd.Parameters.AddWithValue("@username", userName);
@@ -201,7 +199,7 @@ namespace mvc.Repositories
                             taskList.Add(stu);
                         }
                     }
-                }
+                
 
 
 
@@ -213,13 +211,11 @@ namespace mvc.Repositories
         {
             List<MyTask> taskList = new List<MyTask>();
 
-            using (var conn = new NpgsqlConnection(_connectionString))
-            {
-                conn.Open();
+              conn.Open();
 
                 using (var cmd = new NpgsqlCommand("SELECT * FROM t_task where c_tasktypeid = @c_tasktypeid AND c_status = 'Pending' AND c_taskusername = 'default_username'", conn))
                 {
-                    var session = _httpContextAccessor.HttpContext.Session;
+                    var session = __httpContextAccessor.HttpContext.Session;
                     var userId = session.GetInt32("userRole");
 
                     cmd.Parameters.AddWithValue("@c_tasktypeid", userId);
@@ -242,7 +238,7 @@ namespace mvc.Repositories
                             taskList.Add(stu);
                         }
                     }
-                }
+                
 
 
 
@@ -272,8 +268,7 @@ namespace mvc.Repositories
 
         public void EditTask(MyTask task)
         {
-            using (var conn = new NpgsqlConnection(_connectionString))
-            {
+           
                 conn.Open();
                 int tasktypeid = GetTaskTypeId(task.c_tasktypeid, conn);
                 using (var cmd = new NpgsqlCommand("UPDATE t_task SET c_tasktypeid=@c_tasktypeid , c_taskissue=@c_taskissue , c_initialdate=@c_initialdate , c_duedate=@c_duedate , c_status=@c_status WHERE c_taskid =@c_taskid ", conn))
@@ -287,20 +282,19 @@ namespace mvc.Repositories
 
                     cmd.ExecuteNonQuery();
                 }
-            }
+            
         }
 
         public void DeleteTask(MyTask task)
         {
-            using (var conn = new NpgsqlConnection(_connectionString))
-            {
+            
                 conn.Open();
                 using (var cmd = new NpgsqlCommand("DELETE FROM t_task WHERE c_taskid= @c_taskid", conn))
                 {
                     cmd.Parameters.AddWithValue("@c_taskid", task.c_taskid);
                     cmd.ExecuteNonQuery();
                 }
-            }
+            
         }
     }
 }

@@ -1,7 +1,13 @@
+using mvc.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession();
+builder.Services.AddSingleton<IUserRepository,UserRepository>();
+builder.Services.AddSingleton<ITaskRepository,TaskRepository>();
+builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
 
 var app = builder.Build();
 
@@ -15,6 +21,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 
 app.UseRouting();
 

@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using mvc.Models;
+using Npgsql;
 
 namespace mvc.Repositories
 {
-    public class ITaskRepository
+    public interface ITaskRepository
     {
         public List<MyTask> GetAllTask();
         public MyTask GetOneTask(int id);
@@ -15,7 +17,7 @@ namespace mvc.Repositories
 
         public List<MyTask> GetMyTask();
         public List<MyTask> GetUsersTask();
-        private int GetTaskTypeId(string TaskType, NpgsqlConnection conn);
+        // private int GetTaskTypeId(string TaskType, NpgsqlConnection conn);
         public void EditTask(MyTask task);
         public void DeleteTask(MyTask task);
     }

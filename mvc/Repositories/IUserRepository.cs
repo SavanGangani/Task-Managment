@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using mvc.Models;
 
 namespace mvc.Repositories
 {
-    public class IUserRepository
+    public interface IUserRepository
     {
-        public int Register(User user);
-
-        public int Login(User user);
+        public bool Login(User user);
     }
 }
