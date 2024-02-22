@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace mvc.Models
 {
-    public class Task
+    public class MyTask
     {
-           public int  c_taskid { set; get; }
+         public int  c_taskid { set; get; }
 
         public string c_tasktypeid { set; get; }
         public int c_tasktid { set; get; }
