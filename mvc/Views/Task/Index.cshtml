@@ -1,0 +1,171 @@
+@* @using mvc.Models *@
+
+@model List<MyTask>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #0a55a6;
+        color: #fff;
+        text-align: center;
+        padding: 11px;
+    }
+
+    .table-container {
+        max-width: 80%;
+        overflow-x: auto;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        border-radius: 10px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #0a55a6;
+        color: white;
+    }
+
+    tr:hover {
+        background-color: #f8f8f8;
+    }
+
+    .action-buttons a {
+        display: inline-block;
+        margin: 2px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .details-btn {
+        background-color: #3498db;
+    }
+
+    .edit-btn {
+        background-color: #2ecc71;
+    }
+
+    .delete-btn {
+        background-color: #e74c3c;
+    }
+
+    h2 {
+        color: #3498db;
+    }
+
+    .add-btn, .register-btn, .logout-btn {
+        margin: 8px;
+        padding: 10px 24px;
+        border: none;
+        border-radius: 12px;
+        background-color: #2243e6;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        display: inline-block;
+        transition: 0.3s;
+    }
+
+    .add-btn:hover, .register-btn:hover, .logout-btn:hover {
+        background-color: #d35400;
+    }
+</style>
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" ><b>TaskList</b></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/Task/Add" class="btn btn-primary add-btn">Add Task</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/User/Register" class="btn btn-primary register-btn">Register</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary logout-btn" onclick="logout()">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>TaskType</th>
+            <th>Task Issue</th>
+            <th>Assign Date</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>UserName</th>
+            <th style="text-align: center;">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.c_taskid</td>
+                <td>@task.c_tasktypeid</td>
+                <td>@task.c_taskissue</td>
+                <td>@task.c_initialdate.ToString("dd-MM-yyyy")</td>
+                <td>@task.c_duedate.ToString("dd-MM-yyyy")</td>
+                <td>@task.c_status</td>
+                <td>@task.c_taskusername</td>
+                <td class="action-buttons">
+                    <a class="details-btn" asp-action="Details" asp-route-id="@task.c_taskid">Details</a>
+                    <a class="edit-btn" asp-action="Update" asp-route-id="@task.c_taskid">Edit</a>
+                    <a class="delete-btn" asp-action="Delete" asp-route-id="@task.c_taskid"
+                        onclick="return confirm('Are you sure you want to delete this task?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    function logout() {
+        window.location.href = '@Url.Action("Login", "User")';
+        var session = _httpContextAccessor.HttpContext.Session;
+        var uname = "";
+        session.SetString("username", uname);
+         Console.WriteLine(HttpContext.Session.GetString("username"));
+    }
+</script>
