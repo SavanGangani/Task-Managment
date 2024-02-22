@@ -1,10 +1,7 @@
-@* @Context.Session.GetString("role") *@
-@using Task-Managment.Models
-
 @model List<MyTask>
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = null;
 }
 <style>
     body {
@@ -68,18 +65,7 @@
         transition: 0.3s;
     }
 
-    .details-btn {
-        background-color: #3498db;
-    }
-
-    .edit-btn {
-        background-color: #2ecc71;
-    }
-
-    .delete-btn {
-        background-color: #e74c3c;
-    }
-
+    
     h2 {
         color: #3498db;
     }
@@ -102,9 +88,10 @@
     }
 </style>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#" ><b>TaskList</b></a>
+        <a class="navbar-brand" href="#">Task Manager</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,53 +101,50 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="/Task/Add" class="btn btn-primary add-btn">Add Task</a>
+                    <button class="btn btn-primary" onclick="myTask()">MyTask</button>
                 </li>
                 <li class="nav-item">
-                    <a href="/User/Register" class="btn btn-primary register-btn">Register</a>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-primary logout-btn" onclick="logout()">Logout</button>
+                    <button class="btn btn-primary" onclick="logout()">Logout</button>
                 </li>
             </ul>
         </div>
     </nav>
 </div>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>TaskType</th>
-            <th>Task Issue</th>
-            <th>Assign Date</th>
-            <th>Due Date</th>
-            <th>Status</th>
-            <th>UserName</th>
-            <th style="text-align: center;">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var task in Model)
-        {
+<div class="container mt-5">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>@task.c_taskid</td>
-                <td>@task.c_tasktypeid</td>
-                <td>@task.c_taskissue</td>
-                <td>@task.c_initialdate.ToString("dd-MM-yyyy")</td>
-                <td>@task.c_duedate.ToString("dd-MM-yyyy")</td>
-                <td>@task.c_status</td>
-                <td>@task.c_taskusername</td>
-                <td class="action-buttons">
-                    <a class="details-btn" asp-action="Details" asp-route-id="@task.c_taskid">Details</a>
-                    <a class="edit-btn" asp-action="Update" asp-route-id="@task.c_taskid">Edit</a>
-                    <a class="delete-btn" asp-action="Delete" asp-route-id="@task.c_taskid"
-                        onclick="return confirm('Are you sure you want to delete this task?')">Delete</a>
-                </td>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Status</th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var task in Model)
+            {
+                <tr>
+                    <td>@task.c_taskid</td>
+                    <td>@task.c_taskissue</td>
+                    <td>@task.c_initialdate.ToString("dd-MM-yyyy")</td>
+                    <td>@task.c_duedate.ToString("dd-MM-yyyy")</td>
+                    <td>@task.c_status</td>
+                    <td><a asp-route-id="@task.c_taskid" asp-action="AddToMyTask"><button
+                                class="btn btn-secondary">Add</button></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/_framework/aspnetcore-browser-refresh.js"></script>
+
 <script>
     function logout() {
         window.location.href = '@Url.Action("Login", "User")';
@@ -168,5 +152,13 @@
         var uname = "";
         session.SetString("username", uname);
          Console.WriteLine(HttpContext.Session.GetString("username"));
+    }
+
+    function myTask() {
+        window.location.href = '@Url.Action("MyTask", "Task")';
+    }
+
+    function addTask() {
+        console.log("My Tasks clicked");
     }
 </script>
