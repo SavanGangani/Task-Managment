@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace mvc.Models
 {
-    public class Task
+    public class MyTask
     {
            public int  c_taskid { set; get; }
 

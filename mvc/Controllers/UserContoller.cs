@@ -13,13 +13,13 @@ namespace mvc.Controllers
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
-        private readonly UserHelper _userHelper;
+        // private readonly UserHelper _userHelper;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserController(UserHelper userHelper, IHttpContextAccessor httpContextAccessor)
+        public UserController( IHttpContextAccessor httpContextAccessor)
         {
             // _logger = logger;
-            _userHelper = userHelper;
+            // _userHelper = userHelper;
             _httpContextAccessor = httpContextAccessor;
         }
 

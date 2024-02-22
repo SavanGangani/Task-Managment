@@ -13,9 +13,9 @@ namespace mvc.Controllers
     public class TaskController : Controller
     {
         private readonly ILogger<TaskController> _logger;
-        private readonly TaskHelper _taskHelper;
+        // private readonly TaskHelper _taskHelper;
 
-        public TaskController(ILogger<TaskController> logger, TaskHelper taskHelper)
+        public TaskController(ILogger<TaskController> logger, )
         {
             _logger = logger;
             _taskHelper = taskHelper;
