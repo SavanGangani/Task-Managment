@@ -7,7 +7,7 @@ namespace mvc.Models
 {
     public class TaskType
     {
-         public int  c_tasktypeid { set; get; }
+        public int c_tasktypeid { set; get; }
 
         public string c_tasktype { set; get; }
     }

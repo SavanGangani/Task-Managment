@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "3RYw9rN/G3OGTdOM6k91OrqMjlPaE1n0wBB29An4auyv23SlJAcDub1CnzzdJE3crERvXyixBb54NDPDjamBGQ==",
+  "dgSpecHash": "U6KsoN5VPf7haDXBDA4JeQvx44H5EAo17T6oy4lYfpVC47NwNlwCJE+jmlYd1Vbhl0up33/e+6TE3F2cZAdj2w==",
   "success": true,
   "projectFilePath": "F:\\PPSU\\Task Managment\\mvc\\mvc.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\npgsql\\8.0.2\\npgsql.8.0.2.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mvc.Models;
+using mvc.Repositories;
+
 
 namespace mvc.Controllers
 {
@@ -15,11 +17,13 @@ namespace mvc.Controllers
         private readonly ILogger<UserController> _logger;
         // private readonly UserHelper _userHelper;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IUserRepository _userRepository; 
 
-        public UserController( IHttpContextAccessor httpContextAccessor)
+        public UserController( IHttpContextAccessor httpContextAccessor, IUserRepository userRepository)
         {
             // _logger = logger;
             // _userHelper = userHelper;
+            _userRepository = userRepository;
             _httpContextAccessor = httpContextAccessor;
         }
 
@@ -39,7 +43,7 @@ namespace mvc.Controllers
         [HttpPost]
         public IActionResult Login(User user)
         {
-            int rowcount = _userHelper.Login(user);
+            int rowcount = _userRepository.Login(user);
             if (rowcount == 1)
             {
                 if (HttpContext.Session.GetString("role") == "admin")
@@ -76,7 +80,7 @@ namespace mvc.Controllers
         [HttpPost]
         public IActionResult Register(User user)
         {
-            _userHelper.Register(user);
+            _userRepository.Register(user);
             return RedirectToAction("Index", "Task");
         }
 

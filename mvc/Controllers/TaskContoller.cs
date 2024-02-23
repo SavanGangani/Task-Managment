@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mvc.Models;
+using mvc.Repositories;
 
 namespace mvc.Controllers
 {
@@ -13,12 +14,12 @@ namespace mvc.Controllers
     public class TaskController : Controller
     {
         private readonly ILogger<TaskController> _logger;
-        // private readonly TaskHelper _taskHelper;
+        private readonly ITaskRepository _taskRepository;
 
-        public TaskController(ILogger<TaskController> logger, )
+        public TaskController(ILogger<TaskController> logger, ITaskRepository taskRepository)
         {
             _logger = logger;
-            _taskHelper = taskHelper;
+            _taskRepository = taskRepository;
         }
 
         public IActionResult Index()
@@ -26,7 +27,7 @@ namespace mvc.Controllers
             // Console.WriteLine(HttpContext.Session.GetString("username"));
             if (HttpContext.Session.GetString("role") == "admin")
             {
-                var tasks = _taskHelper.GetAllTask();
+                var tasks = _taskRepository.GetAllTask();
                 return View(tasks);
             }
             else
@@ -44,7 +45,7 @@ namespace mvc.Controllers
 
         public IActionResult Details(int id)
         {
-            MyTask task = _taskHelper.GetOneTask(id);
+            MyTask task = _taskRepository.GetOneTask(id);
             if (task == null)
             {
                 return NotFound();
@@ -59,15 +60,15 @@ namespace mvc.Controllers
         public IActionResult Add(MyTask task)
         {
             task.c_taskusername = "default_username";
-            _taskHelper.AddTask(task);
+            _taskRepository.AddTask(task);
             return RedirectToAction("Index");
 
         }
 
         public IActionResult AddToMyTask(int id)
         {
-            MyTask addtoMyTask = _taskHelper.GetOneTask(id);
-            _taskHelper.AddToMyTask(addtoMyTask);
+            MyTask addtoMyTask = _taskRepository.GetOneTask(id);
+            _taskRepository.AddToMyTask(addtoMyTask);
             return RedirectToAction("MyTask");
         }
 
@@ -75,8 +76,8 @@ namespace mvc.Controllers
         {
             if (HttpContext.Session.GetString("username") != "")
             {
-                MyTask updateStatus = _taskHelper.GetOneTask(id);
-                _taskHelper.UpdateStatus(updateStatus);
+                MyTask updateStatus = _taskRepository.GetOneTask(id);
+                _taskRepository.UpdateStatus(updateStatus);
                 return RedirectToAction("MyTask");
             }
             else
@@ -88,12 +89,12 @@ namespace mvc.Controllers
 
         public IActionResult Delete(int id)
         {
-            MyTask taskToDelete = _taskHelper.GetOneTask(id);
+            MyTask taskToDelete = _taskRepository.GetOneTask(id);
             if (taskToDelete == null)
             {
                 return NotFound(); // Return 404 if task not found
             }
-            _taskHelper.DeleteTask(taskToDelete);
+            _taskRepository.DeleteTask(taskToDelete);
             return RedirectToAction("Index");
         }
 
@@ -101,7 +102,7 @@ namespace mvc.Controllers
         {
             if (HttpContext.Session.GetString("username") != "")
             {
-                List<MyTask> taskList = _taskHelper.GetMyTask();
+                List<MyTask> taskList = _taskRepository.GetMyTask();
                 return View(taskList);
             }
             else
@@ -114,7 +115,7 @@ namespace mvc.Controllers
         {
             if (HttpContext.Session.GetString("username") != "")
             {
-                List<MyTask> taskList = _taskHelper.GetUsersTask();
+                List<MyTask> taskList = _taskRepository.GetUsersTask();
                 return View(taskList);
             }
             else
@@ -127,7 +128,7 @@ namespace mvc.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            MyTask task = _taskHelper.GetOneTask(id);
+            MyTask task = _taskRepository.GetOneTask(id);
             if (task == null)
             
             {
@@ -139,7 +140,7 @@ namespace mvc.Controllers
         [HttpPost]
         public IActionResult Update(MyTask task)
         {
-            _taskHelper.EditTask(task);
+            _taskRepository.EditTask(task);
             return RedirectToAction("Index", "Task");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

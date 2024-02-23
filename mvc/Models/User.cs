@@ -7,7 +7,7 @@ namespace mvc.Models
 {
     public class User
     {
-          public int c_userid { set; get; }
+        public int c_userid { set; get; }
         public string c_username { set; get; }
         public string c_email { set; get; }
         public string c_password { set; get; }
