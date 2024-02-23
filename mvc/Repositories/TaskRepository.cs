@@ -41,6 +41,7 @@ namespace mvc.Repositories
                 }
 
             }
+            conn.Close();
             return taskList;
         }
 
@@ -68,6 +69,7 @@ namespace mvc.Repositories
                 }
 
             }
+            conn.Close();
             return task;
         }
 
@@ -90,7 +92,7 @@ namespace mvc.Repositories
 
                 cmd.ExecuteNonQuery();
             }
-
+            conn.Close();
         }
 
         public void AddToMyTask(MyTask myTask)
@@ -106,7 +108,7 @@ namespace mvc.Repositories
 
                 cmd.ExecuteNonQuery();
             }
-
+            conn.Close();
         }
 
         public void UpdateStatus(MyTask myTask)
@@ -120,6 +122,7 @@ namespace mvc.Repositories
                 cmd.ExecuteNonQuery();
             }
 
+conn.Close();
         }
 
         // public List<MyTask> GetMyTask()
@@ -204,6 +207,7 @@ namespace mvc.Repositories
 
 
             }
+            conn.Close();
             return taskList;
         }
 
@@ -239,8 +243,10 @@ namespace mvc.Repositories
                     }
                 }
 
-                conn.Close();
             }
+            
+                conn.Close();
+
             return taskList;
         }
 
@@ -280,6 +286,7 @@ namespace mvc.Repositories
 
                 cmd.ExecuteNonQuery();
             }
+                conn.Close();
 
         }
 
@@ -292,6 +299,7 @@ namespace mvc.Repositories
                 cmd.Parameters.AddWithValue("@c_taskid", task.c_taskid);
                 cmd.ExecuteNonQuery();
             }
+                conn.Close();
 
         }
     }

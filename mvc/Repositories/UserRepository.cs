@@ -28,7 +28,7 @@ namespace mvc.Repositories
             string username = "";
             int studentID = 0, UserType = 0;
 
-            using (var conn = new NpgsqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+            using (var conn = new NpgsqlConnection(_configuration.GetConnectionString("MyConnection")))
             {
                 try
                 {
