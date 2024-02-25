@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+      <ProjectReference  Include="../mvc/mvc.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <!-- <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" /> -->
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />

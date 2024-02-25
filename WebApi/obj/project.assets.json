@@ -690,6 +690,22 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
+      },
+      "mvc/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "npgsql": "8.0.2"
+        },
+        "compile": {
+          "bin/placeholder/mvc.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/mvc.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -1956,6 +1972,11 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "mvc/1.0.0": {
+      "type": "project",
+      "path": "../mvc/mvc.csproj",
+      "msbuildProject": "../mvc/mvc.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1963,41 +1984,39 @@
       "Microsoft.AspNetCore.Cors >= 2.2.0",
       "Microsoft.AspNetCore.Session >= 2.2.0",
       "Npgsql >= 8.0.2",
-      "Swashbuckle.AspNetCore >= 6.4.0"
+      "Swashbuckle.AspNetCore >= 6.4.0",
+      "mvc >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dhruvi kava\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\hp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Interns Data\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "D:\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "D:\\Interns Data\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj",
-      "packagesPath": "C:\\Users\\Dhruvi kava\\.nuget\\packages\\",
-      "outputPath": "D:\\Interns Data\\GitProject\\Task-Managment\\WebApi\\obj\\",
+      "projectPath": "D:\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj",
+      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+      "outputPath": "D:\\GitProject\\Task-Managment\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Dhruvi kava\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\GitProject\\Task-Managment\\mvc\\mvc.csproj": {
+              "projectPath": "D:\\GitProject\\Task-Managment\\mvc\\mvc.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -2038,24 +2057,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -2064,7 +2065,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }

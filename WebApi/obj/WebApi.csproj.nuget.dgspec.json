@@ -1,37 +1,97 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Interns Data\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj": {}
+    "D:\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "D:\\Interns Data\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj": {
+    "D:\\GitProject\\Task-Managment\\mvc\\mvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Interns Data\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj",
-        "projectName": "WebApi",
-        "projectPath": "D:\\Interns Data\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj",
-        "packagesPath": "C:\\Users\\Dhruvi kava\\.nuget\\packages\\",
-        "outputPath": "D:\\Interns Data\\GitProject\\Task-Managment\\WebApi\\obj\\",
+        "projectUniqueName": "D:\\GitProject\\Task-Managment\\mvc\\mvc.csproj",
+        "projectName": "mvc",
+        "projectPath": "D:\\GitProject\\Task-Managment\\mvc\\mvc.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "D:\\GitProject\\Task-Managment\\mvc\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Dhruvi kava\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "npgsql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj",
+        "projectName": "WebApi",
+        "projectPath": "D:\\GitProject\\Task-Managment\\WebApi\\WebApi.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "D:\\GitProject\\Task-Managment\\WebApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\GitProject\\Task-Managment\\mvc\\mvc.csproj": {
+                "projectPath": "D:\\GitProject\\Task-Managment\\mvc\\mvc.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -72,24 +132,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -98,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
