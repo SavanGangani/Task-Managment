@@ -1,9 +1,5 @@
-using mvc.Repositories;
 using mvc.Models;
-using System.Text;
-using Microsoft.OpenApi.Models;
-using Microsoft.Net.Http.Headers;
-
+using mvc.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -31,10 +27,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthorization();
-
-app.MapControllers();
-
 
 app.Run();
 
