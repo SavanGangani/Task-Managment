@@ -1,0 +1,8 @@
+D:\Interns Data\GitProject\Task-Managment\WebApi\obj\Debug\net8.0\WebApi.csproj.AssemblyReference.cache
+D:\Interns Data\GitProject\Task-Managment\WebApi\obj\Debug\net8.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\Interns Data\GitProject\Task-Managment\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfoInputs.cache
+D:\Interns Data\GitProject\Task-Managment\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfo.cs
+D:\Interns Data\GitProject\Task-Managment\WebApi\obj\Debug\net8.0\WebApi.csproj.CoreCompileInputs.cache
+D:\Interns Data\GitProject\Task-Managment\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
+D:\Interns Data\GitProject\Task-Managment\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
+D:\Interns Data\GitProject\Task-Managment\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
